@@ -1,0 +1,44 @@
+{
+  "/": {
+    "src/components/gitgy-app.js": {
+      "type": "script",
+      "weight": 1
+    },
+    "src/components/my-view1.js": {
+      "type": "script",
+      "weight": 1
+    },
+    "node_modules/@webcomponents/webcomponentsjs/webcomponents-loader.js": {
+      "type": "script",
+      "weight": 1
+    }
+  },
+  "/view1": {
+    "src/components/gitgy-app.js": {
+      "type": "script",
+      "weight": 1
+    },
+    "src/components/my-view1.js": {
+      "type": "script",
+      "weight": 1
+    },
+    "node_modules/@webcomponents/webcomponentsjs/webcomponents-loader.js": {
+      "type": "script",
+      "weight": 1
+    }
+  },
+  "/map": {
+    "src/components/gitgy-app.js": {
+      "type": "script",
+      "weight": 1
+    },
+    "src/components/map-view.js": {
+      "type": "script",
+      "weight": 1
+    },
+    "node_modules/@webcomponents/webcomponentsjs/webcomponents-loader.js": {
+      "type": "script",
+      "weight": 1
+    }
+  }
+}
