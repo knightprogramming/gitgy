@@ -186,8 +186,8 @@ class MyApp extends connect(store)(LitElement) {
 
       <!-- This gets hidden on a small screen-->
       <nav class="toolbar-list">
-        <a ?selected="${this._page === 'view1'}" href="/view1">View One</a>
-        <a ?selected="${this._page === 'map'}" href="/map">Map View</a>
+        <a ?selected="${this._page === 'home'}" href="/home">Home</a>
+        <a ?selected="${this._page === 'map'}" href="/map">Map</a>
       </nav>
     </app-header>
 
@@ -195,16 +195,16 @@ class MyApp extends connect(store)(LitElement) {
     <app-drawer .opened="${this._drawerOpened}"
         @opened-changed="${this._drawerOpenedChanged}">
       <nav class="drawer-list">
-        <a ?selected="${this._page === 'view1'}" href="/view1">View One</a>
-        <a ?selected="${this._page === 'map'}" href="/map">Map View</a>
+        <a ?selected="${this._page === 'home'}" href="/home">Home</a>
+        <a ?selected="${this._page === 'map'}" href="/map">Map</a>
       </nav>
     </app-drawer>
 
     <!-- Main content -->
     <main role="main" class="main-content">
-      <my-view1 class="page" ?active="${this._page === 'view1'}"></my-view1>
-      <my-view404 class="page" ?active="${this._page ===
-        'view404'}"></my-view404>
+      <home-view class="page" ?active="${this._page === 'home'}"></home-view>
+      <not-found-view class="page" ?active="${this._page ===
+        'not-found'}"></not-found-view>
       <map-view class="page" ?active="${this._page === 'map'}"></map-view>
     </main>
 

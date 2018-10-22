@@ -9,12 +9,12 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 */
 
 import { html } from '@polymer/lit-element'
-import { PageViewElement } from './page-view-element.js'
+import { PageViewElement } from '../page-view-element.js'
 
 // These are the shared styles needed by this element.
-import { SharedStyles } from './shared-styles.js'
+import { SharedStyles } from '../shared-styles.js'
 
-class MyView1 extends PageViewElement {
+class HomeView extends PageViewElement {
   render() {
     return html`
       ${SharedStyles}
@@ -26,4 +26,4 @@ class MyView1 extends PageViewElement {
   }
 }
 
-window.customElements.define('my-view1', MyView1)
+window.customElements.define('home-view', HomeView)

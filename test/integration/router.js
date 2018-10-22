@@ -38,8 +38,8 @@ describe('routing tests', function() {
     await page.goto(`${appUrl}`)
     await page.waitForSelector('gitgy-app', { visible: true })
 
-    await testNavigation(page, 'view1', 'View One')
-    await testNavigation(page, 'map', 'Map View')
+    await testNavigation(page, 'home', 'Home')
+    await testNavigation(page, 'map', 'Map')
   })
 
   it('the page selector switches pages in a different way', async function() {
@@ -62,8 +62,8 @@ describe('routing tests', function() {
       console.log(window.deepQuerySelector)
     })
 
-    await testNavigationInADifferentWay(page, 'view1', 'View One')
-    await testNavigationInADifferentWay(page, 'map', 'Map View')
+    await testNavigationInADifferentWay(page, 'home', 'Home')
+    await testNavigationInADifferentWay(page, 'map', 'Map')
   })
 })
 

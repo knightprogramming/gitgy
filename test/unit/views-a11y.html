@@ -26,15 +26,15 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
   <script src="../../node_modules/wct-browser-legacy/browser.js"></script>
 
   <!-- Import the element to test -->
-  <script type="module" src="../../src/components/my-view1.js"></script>
-  <script type="module" src="../../src/components/map-view.js"></script>
-  <script type="module" src="../../src/components/my-view404.js"></script>
+  <script type="module" src="../../src/components/views/home-view.js"></script>
+  <script type="module" src="../../src/components/views/map-view.js"></script>
+  <script type="module" src="../../src/components/views/not-found-view.js"></script>
 </head>
 
 <body>
-  <test-fixture id="view1">
+  <test-fixture id="home">
     <template>
-      <my-view1 active></my-view1>
+      <home-view active></home-view>
     </template>
   </test-fixture>
   <test-fixture id="map">
@@ -42,9 +42,9 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       <map-view active></map-view>
     </template>
   </test-fixture>
-  <test-fixture id="view404">
+  <test-fixture id="notFound">
     <template>
-      <my-view404 active></my-view404>
+      <not-found-view active></not-found-view>
     </template>
   </test-fixture>
 
@@ -53,8 +53,8 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     import { axeReport } from 'pwa-helpers/axe-report.js';
 
     suite('views a11y tests', function () {
-      test('my-view1', function () {
-        const el = fixture('view1');
+      test('home-view', function () {
+        const el = fixture('home');
         return axeReport(el);
       });
 
@@ -63,8 +63,8 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         return axeReport(el);
       });
 
-      test('my-view404', function () {
-        const el = fixture('view404');
+      test('not-found-view', function () {
+        const el = fixture('notFound');
         return axeReport(el);
       });
     });
