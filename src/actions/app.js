@@ -37,6 +37,9 @@ const loadPage = page => dispatch => {
     case 'map':
       import('../components/views/map-view.js')
       break
+    case 'login':
+      import('../components/views/login-view.js')
+      break
     default:
       page = 'not-found'
       import('../components/views/not-found-view.js')

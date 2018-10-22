@@ -68,6 +68,9 @@ async function generateBaselineScreenshots(page) {
     // Map View
     await page.goto('http://127.0.0.1:4444/map')
     await page.screenshot({ path: `${baselineDir}/${prefix}/map.png` })
+    // Login View
+    await page.goto('http://127.0.0.1:4444/login')
+    await page.screenshot({ path: `${baselineDir}/${prefix}/login.png` })
     // 404.
     await page.goto('http://127.0.0.1:4444/batmanNotAView')
     await page.screenshot({

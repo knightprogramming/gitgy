@@ -65,6 +65,9 @@ describe('👀 page screenshots are correct', function() {
     it('/map', async function() {
       return takeAndCompareScreenshot(page, 'map', 'wide')
     })
+    it('/login', async function() {
+      return takeAndCompareScreenshot(page, 'login', 'wide')
+    })
     it('/404', async function() {
       return takeAndCompareScreenshot(page, 'batmanNotAView', 'wide')
     })
@@ -83,6 +86,9 @@ describe('👀 page screenshots are correct', function() {
     })
     it('/map', async function() {
       return takeAndCompareScreenshot(page, 'map', 'narrow')
+    })
+    it('/login', async function() {
+      return takeAndCompareScreenshot(page, 'login', 'narrow')
     })
     it('/404', async function() {
       return takeAndCompareScreenshot(page, 'batmanNotAView', 'narrow')

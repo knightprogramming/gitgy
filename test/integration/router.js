@@ -40,6 +40,7 @@ describe('routing tests', function() {
 
     await testNavigation(page, 'home', 'Home')
     await testNavigation(page, 'map', 'Map')
+    await testNavigation(page, 'login', 'Login')
   })
 
   it('the page selector switches pages in a different way', async function() {
@@ -64,6 +65,7 @@ describe('routing tests', function() {
 
     await testNavigationInADifferentWay(page, 'home', 'Home')
     await testNavigationInADifferentWay(page, 'map', 'Map')
+    await testNavigationInADifferentWay(page, 'login', 'Login')
   })
 })
 

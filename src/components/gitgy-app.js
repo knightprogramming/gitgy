@@ -188,6 +188,7 @@ class MyApp extends connect(store)(LitElement) {
       <nav class="toolbar-list">
         <a ?selected="${this._page === 'home'}" href="/home">Home</a>
         <a ?selected="${this._page === 'map'}" href="/map">Map</a>
+        <a ?selected="${this._page === 'login'}" href="/login">Login</a>
       </nav>
     </app-header>
 
@@ -197,6 +198,7 @@ class MyApp extends connect(store)(LitElement) {
       <nav class="drawer-list">
         <a ?selected="${this._page === 'home'}" href="/home">Home</a>
         <a ?selected="${this._page === 'map'}" href="/map">Map</a>
+        <a ?selected="${this._page === 'login'}" href="/login">Login</a>
       </nav>
     </app-drawer>
 
@@ -206,6 +208,7 @@ class MyApp extends connect(store)(LitElement) {
       <not-found-view class="page" ?active="${this._page ===
         'not-found'}"></not-found-view>
       <map-view class="page" ?active="${this._page === 'map'}"></map-view>
+      <login-view class="page" ?active="${this._page === 'login'}"></login-view>
     </main>
 
     <footer>

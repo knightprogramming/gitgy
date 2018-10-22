@@ -28,6 +28,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
   <!-- Import the element to test -->
   <script type="module" src="../../src/components/views/home-view.js"></script>
   <script type="module" src="../../src/components/views/map-view.js"></script>
+  <script type="module" src="../../src/components/views/login-view.js"></script>
   <script type="module" src="../../src/components/views/not-found-view.js"></script>
 </head>
 
@@ -40,6 +41,11 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
   <test-fixture id="map">
     <template>
       <map-view active></map-view>
+    </template>
+  </test-fixture>
+  <test-fixture id="login">
+    <template>
+      <login-view active></login-view>
     </template>
   </test-fixture>
   <test-fixture id="notFound">
@@ -60,6 +66,11 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
       test('map-view', function () {
         const el = fixture('map');
+        return axeReport(el);
+      });
+
+      test('login-view', function () {
+        const el = fixture('login');
         return axeReport(el);
       });
 
