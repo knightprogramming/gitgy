@@ -8,19 +8,18 @@ Code distributed by Google as part of the polymer project is also
 subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
 */
 
-import { html } from '@polymer/lit-element'
+import { LitElement, html } from '@polymer/lit-element'
 
-export const ButtonSharedStyles = html`
-<style>
-  button {
-    font-size: inherit;
-    vertical-align: middle;
-    background: transparent;
-    border: none;
-    cursor: pointer;
+// These are the shared styles needed by this element.
+import { ButtonSharedStyles } from './loading-element-styles'
+
+class LoadingElement extends LitElement {
+  render() {
+    return html`
+    ${ButtonSharedStyles}
+      <div>Loading<span class="loading__dot">.</span><span class="loading__dot">.</span><span class="loading__dot">.</span></div>
+    `
   }
-  button:hover svg {
-    fill: var(--app-primary-color);
-  }
-</style>
-`
+}
+
+window.customElements.define('loading-element', LoadingElement)
