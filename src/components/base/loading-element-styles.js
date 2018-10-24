@@ -35,7 +35,7 @@ export const ButtonSharedStyles = html`
 
   /* Transparent Overlay */
   :host:before {
-    background-color: rgba(0, 0, 0, 0.3);
+    background-color: rgba(233,30,99, 0.3);
     content: '';
     display: block;
     height: 100%;
@@ -52,9 +52,11 @@ export const ButtonSharedStyles = html`
   /* Spinner */
   .spinner {
     display: inline-block;
-    position: relative;
-    width: 64px;
     height: 64px;
+    left: -15px;
+    position: relative;
+    top: -15px;
+    width: 64px;
   }
   .spinner div {
     position: absolute;

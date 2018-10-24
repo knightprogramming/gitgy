@@ -21,6 +21,13 @@ import { store } from '../store.js'
 
 // These are the actions needed by this element.
 import { navigate, updateOffline, updateDrawerState } from '../actions/app.js'
+import { logout } from '../actions/auth'
+
+// We are lazy loading its reducer.
+import auth from '../reducers/auth'
+store.addReducers({
+  auth
+})
 
 // These are the elements needed by this element.
 import '@polymer/app-layout/app-drawer/app-drawer.js'
@@ -188,7 +195,12 @@ class MyApp extends connect(store)(LitElement) {
       <nav class="toolbar-list">
         <a ?selected="${this._page === 'home'}" href="/home">Home</a>
         <a ?selected="${this._page === 'map'}" href="/map">Map</a>
-        <a ?selected="${this._page === 'login'}" href="/login">Login</a>
+        ${
+          this._user
+            ? html`<a href="#" @click="${this._logout}">Logout</a>`
+            : html`<a ?selected="${this._page ===
+                'login'}" href="/login">Login</a>`
+        }
       </nav>
     </app-header>
 
@@ -198,7 +210,12 @@ class MyApp extends connect(store)(LitElement) {
       <nav class="drawer-list">
         <a ?selected="${this._page === 'home'}" href="/home">Home</a>
         <a ?selected="${this._page === 'map'}" href="/map">Map</a>
-        <a ?selected="${this._page === 'login'}" href="/login">Login</a>
+        ${
+          this._user
+            ? html`<a href="#" @click="${this._logout}">Logout</a>`
+            : html`</button><a ?selected="${this._page ===
+                'login'}" href="/login">Login</a>`
+        }
       </nav>
     </app-drawer>
 
@@ -226,7 +243,13 @@ class MyApp extends connect(store)(LitElement) {
       _page: { type: String },
       _drawerOpened: { type: Boolean },
       _snackbarOpened: { type: Boolean },
-      _offline: { type: Boolean }
+      _offline: { type: Boolean },
+      _user: {
+        type: String,
+        statePath({ auth }) {
+          return auth.uid
+        }
+      }
     }
   }
 
@@ -266,11 +289,19 @@ class MyApp extends connect(store)(LitElement) {
     store.dispatch(updateDrawerState(e.target.opened))
   }
 
+  _logout(e) {
+    store.dispatch(logout())
+  }
+
   stateChanged(state) {
     this._page = state.app.page
     this._offline = state.app.offline
     this._snackbarOpened = state.app.snackbarOpened
     this._drawerOpened = state.app.drawerOpened
+
+    if (this._user !== state.auth.uid) {
+      this._user = state.auth.uid
+    }
   }
 }
 

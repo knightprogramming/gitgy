@@ -33,8 +33,4 @@ export const loginSuccess = uid => ({ type: LOGIN_SUCCESS, uid })
 
 export const loginFailure = () => ({ type: LOGIN_FAILURE })
 
-export const startLogout = () => (dispatch, getState) => {
-  return dispatch(logout())
-}
-
 export const logout = () => ({ type: LOGOUT })

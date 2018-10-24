@@ -19,12 +19,6 @@ import { store } from '../../store'
 import { startLogin } from '../../actions/auth'
 import { navigate } from '../../actions/app'
 
-// We are lazy loading its reducer.
-import auth from '../../reducers/auth'
-store.addReducers({
-  auth
-})
-
 // These are the shared styles needed by this element.
 import { SharedStyles } from '../shared-styles.js'
 
