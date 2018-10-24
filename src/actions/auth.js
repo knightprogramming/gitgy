@@ -18,7 +18,7 @@ export const startLogin = (email, password) => (dispatch, getState) => {
 
   setTimeout(() => {
     const emailCheck = 'test@test.com'
-    const passwordCheck = 'test'
+    const passwordCheck = 'testtest'
 
     if (email === emailCheck && password === passwordCheck) {
       const uid = 'abc123'

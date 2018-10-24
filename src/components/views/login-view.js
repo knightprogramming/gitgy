@@ -30,22 +30,99 @@ class LoginView extends connect(store)(PageViewElement) {
   render() {
     return html`
       ${SharedStyles}
+      <style>
+        h2 {
+          margin-bottom: 0;
+        }
+        p {
+          margin-bottom: 0;
+          text-align: center;
+        }
+        input, label, button {
+          transition: all 0.25s cubic-bezier(0.53, 0.01, 0.35, 1.5);
+        }
+        form {
+          box-sizing: border-box;
+          margin: 0 auto;
+          padding: 0px 25px 30px 25px;
+          position: relative;
+          width: 270px;
+        }
+        form div {
+          position: relative;
+          width: 100%;
+        }
+        input {
+          border: 1px solid #E91E63;
+          border-radius: 60px;
+          box-sizing: border-box;
+          color: #E91E63;
+          margin-top: 30px;
+          padding: 10px 15px;
+          width: 100%;
+        }
+        input:focus {
+          background: #E91E63;
+          color: white;
+          outline: none;
+        }
+        input:valid {
+          margin-top: 30px;
+        }
+        input:focus ~ label {
+          transform: translate(0, -30px);
+        }
+        input:valid ~ label {
+          font-style: italic;
+          text-transform: uppercase;
+          transform: translate(-40px, -30px) scale(0.6);
+        }
+        label {
+          box-sizing: border-box;
+          color: #E91E63;
+          position: absolute;
+          padding: 10px 15px;
+          margin-top: -40px;
+          pointer-events: none;
+          width: 100%;
+        }
+        button {
+          background-color: white;
+          border: 1px solid #E91E63;
+          border-radius: 60px;
+          color: #E91E63;
+          display: block;
+          line-height: 0;
+          margin: 35px auto 0;
+          padding: 20px 15px;
+        }
+        button:hover {
+          background-color: #E91E63;
+          color: white;
+          cursor: pointer;
+        }
+      </style>
       <section>
         ${this._loading ? html`<loading-element></loading-element>` : ''}
         ${
           !this._user
             ? html`
-              <h2>Login</h2>
+              <h2>Hey there!</h2>
+              <p>Please enter your credentials</p>
               <iron-form>
                 <form>
-                  <label for="email">
-                    Email
-                    <input id="email" name="email" type="email" placeholder="Username" required autofocus="">
-                  </label>
-                  <label for ="email">
-                    Password
-                    <input id="password" name="email" type="password" placeholder="Password" required>
-                  </label>
+                  <div>
+                    <input id="email" name="email" type="email" required>
+                    <label for="email">
+                      E-Mail
+                    </label>
+                  </div>
+                  <div>
+                    <input id="password" name="email" type="password" minlength="8" required>
+                    <label for ="email">
+                      Password
+                    </label>
+                  </div>
                   <button class="btn" type="button" @click="${
                     this._login
                   }">Login</button>
@@ -79,6 +156,10 @@ class LoginView extends connect(store)(PageViewElement) {
         }
       }
     }
+  }
+
+  static get observers() {
+    return ['_isNotEmpty(_email)']
   }
 
   _login(e) {

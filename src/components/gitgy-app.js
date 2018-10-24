@@ -113,6 +113,10 @@ class MyApp extends connect(store)(LitElement) {
         width: 44px;
       }
 
+      app-drawer {
+        z-index: 999;
+      }
+
       .drawer-list {
         box-sizing: border-box;
         width: 100%;
