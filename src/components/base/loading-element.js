@@ -17,7 +17,20 @@ class LoadingElement extends LitElement {
   render() {
     return html`
     ${ButtonSharedStyles}
-      <div>Loading<span class="loading__dot">.</span><span class="loading__dot">.</span><span class="loading__dot">.</span></div>
+      <div class="spinner">
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      </div>
     `
   }
 }

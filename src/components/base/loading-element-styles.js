@@ -8,12 +8,19 @@ Code distributed by Google as part of the polymer project is also
 subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
 */
 
+/** styles courtesy of https://loading.io/css/ and inspired by https://codepen.io/MattIn4D/pen/LiKFC */
+
 import { html } from '@polymer/lit-element'
 
 export const ButtonSharedStyles = html`
 <style>
   /* Absolute Center Spinner */
   :host {
+    -webkit-animation: fadein 1s;
+    -moz-animation: fadein 1s;
+    -ms-animation: fadein 1s;
+    -o-animation: fadein 1s;
+    animation: fadein 1s;
     bottom: 0;
     height: 2em;
     left: 0;
@@ -37,107 +44,129 @@ export const ButtonSharedStyles = html`
     top: 0;
     width: 100%;
   }
-
-  /* :not(:required) hides these rules from IE9 and below */
-  :host:not(:required) {
-    /* hide "loading..." text */
-    background-color: transparent;
-    border: 0;
-    color: transparent;
-    font: 0 / 0 a;
-    text-shadow: none;
+  @keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
   }
 
-  :host:not(:required):after {
-    -webkit-animation: spinner 1500ms infinite linear;
-    -moz-animation: spinner 1500ms infinite linear;
-    -ms-animation: spinner 1500ms infinite linear;
-    -o-animation: spinner 1500ms infinite linear;
-    animation: spinner 1500ms infinite linear;
-    border-radius: 0.5em;
-    -webkit-box-shadow: rgba(0, 0, 0, 0.75) 1.5em 0 0 0,
-      rgba(0, 0, 0, 0.75) 1.1em 1.1em 0 0, rgba(0, 0, 0, 0.75) 0 1.5em 0 0,
-      rgba(0, 0, 0, 0.75) - 1.1em 1.1em 0 0, rgba(0, 0, 0, 0.5) - 1.5em 0 0 0,
-      rgba(0, 0, 0, 0.5) - 1.1em - 1.1em 0 0, rgba(0, 0, 0, 0.75) 0 - 1.5em 0 0,
-      rgba(0, 0, 0, 0.75) 1.1em - 1.1em 0 0;
-    box-shadow: rgba(0, 0, 0, 0.75) 1.5em 0 0 0,
-      rgba(0, 0, 0, 0.75) 1.1em 1.1em 0 0, rgba(0, 0, 0, 0.75) 0 1.5em 0 0,
-      rgba(0, 0, 0, 0.75) - 1.1em 1.1em 0 0, rgba(0, 0, 0, 0.75) - 1.5em 0 0 0,
-      rgba(0, 0, 0, 0.75) - 1.1em - 1.1em 0 0, rgba(0, 0, 0, 0.75) 0 - 1.5em 0 0,
-      rgba(0, 0, 0, 0.75) 1.1em - 1.1em 0 0;
-    content: '';
-    display: block;
-    font-size: 10px;
-    height: 1em;
-    margin-top: -0.5em;
-    width: 1em;
+  /* Spinner */
+  .spinner {
+    display: inline-block;
+    position: relative;
+    width: 64px;
+    height: 64px;
   }
-
-  /* Animation */
-  @-webkit-keyframes spinner {
-    0% {
-      -webkit-transform: rotate(0deg);
-      -moz-transform: rotate(0deg);
-      -ms-transform: rotate(0deg);
-      -o-transform: rotate(0deg);
-      transform: rotate(0deg);
+  .spinner div {
+    position: absolute;
+    width: 5px;
+    height: 5px;
+    background: #fff;
+    border-radius: 50%;
+    -webkit-animation: spinner 1.2s linear infinite;
+    -moz-animation: spinner 1.2s linear infinite;
+    -ms-animation: spinner 1.2s linear infinite;
+    -o-animation: spinner 1.2s linear infinite;
+    animation: spinner 1.2s linear infinite;
+  }
+  .spinner div:nth-child(1) {
+    animation-delay: 0s;
+    top: 29px;
+    left: 53px;
+  }
+  .spinner div:nth-child(2) {
+    animation-delay: -0.1s;
+    top: 18px;
+    left: 50px;
+  }
+  .spinner div:nth-child(3) {
+    animation-delay: -0.2s;
+    top: 9px;
+    left: 41px;
+  }
+  .spinner div:nth-child(4) {
+    animation-delay: -0.3s;
+    top: 6px;
+    left: 29px;
+  }
+  .spinner div:nth-child(5) {
+    animation-delay: -0.4s;
+    top: 9px;
+    left: 18px;
+  }
+  .spinner div:nth-child(6) {
+    animation-delay: -0.5s;
+    top: 18px;
+    left: 9px;
+  }
+  .spinner div:nth-child(7) {
+    animation-delay: -0.6s;
+    top: 29px;
+    left: 6px;
+  }
+  .spinner div:nth-child(8) {
+    animation-delay: -0.7s;
+    top: 41px;
+    left: 9px;
+  }
+  .spinner div:nth-child(9) {
+    animation-delay: -0.8s;
+    top: 50px;
+    left: 18px;
+  }
+  .spinner div:nth-child(10) {
+    animation-delay: -0.9s;
+    top: 53px;
+    left: 29px;
+  }
+  .spinner div:nth-child(11) {
+    animation-delay: -1s;
+    top: 50px;
+    left: 41px;
+  }
+  .spinner div:nth-child(12) {
+    animation-delay: -1.1s;
+    top: 41px;
+    left: 50px;
+  }
+  @keyframes spinner {
+    0%, 20%, 80%, 100% {
+      transform: scale(1);
     }
-    100% {
-      -webkit-transform: rotate(360deg);
-      -moz-transform: rotate(360deg);
-      -ms-transform: rotate(360deg);
-      -o-transform: rotate(360deg);
-      transform: rotate(360deg);
+    50% {
+      transform: scale(1.5);
     }
   }
   @-moz-keyframes spinner {
-    0% {
-      -webkit-transform: rotate(0deg);
-      -moz-transform: rotate(0deg);
-      -ms-transform: rotate(0deg);
-      -o-transform: rotate(0deg);
-      transform: rotate(0deg);
+    0%, 20%, 80%, 100% {
+      transform: scale(1);
     }
-    100% {
-      -webkit-transform: rotate(360deg);
-      -moz-transform: rotate(360deg);
-      -ms-transform: rotate(360deg);
-      -o-transform: rotate(360deg);
-      transform: rotate(360deg);
+    50% {
+      transform: scale(1.5);
+    }
+  }
+  @-webkit-keyframes spinner {
+    0%, 20%, 80%, 100% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.5);
+    }
+  }
+  @-ms-keyframes spinner {
+    0%, 20%, 80%, 100% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.5);
     }
   }
   @-o-keyframes spinner {
-    0% {
-      -webkit-transform: rotate(0deg);
-      -moz-transform: rotate(0deg);
-      -ms-transform: rotate(0deg);
-      -o-transform: rotate(0deg);
-      transform: rotate(0deg);
+    0%, 20%, 80%, 100% {
+      transform: scale(1);
     }
-    100% {
-      -webkit-transform: rotate(360deg);
-      -moz-transform: rotate(360deg);
-      -ms-transform: rotate(360deg);
-      -o-transform: rotate(360deg);
-      transform: rotate(360deg);
+    50% {
+      transform: scale(1.5);
     }
   }
-  @keyframes spinner {
-    0% {
-      -webkit-transform: rotate(0deg);
-      -moz-transform: rotate(0deg);
-      -ms-transform: rotate(0deg);
-      -o-transform: rotate(0deg);
-      transform: rotate(0deg);
-    }
-    100% {
-      -webkit-transform: rotate(360deg);
-      -moz-transform: rotate(360deg);
-      -ms-transform: rotate(360deg);
-      -o-transform: rotate(360deg);
-      transform: rotate(360deg);
-    }
-  }
-
 </style>
 `

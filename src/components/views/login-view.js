@@ -52,7 +52,9 @@ class LoginView extends connect(store)(PageViewElement) {
                     Password
                     <input id="password" name="email" type="password" placeholder="Password" required>
                   </label>
-                  <button class="btn" @click="${this._login}">Login</button>
+                  <button class="btn" type="button" @click="${
+                    this._login
+                  }">Login</button>
                 </form>
               </iron-form>
             `
