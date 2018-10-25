@@ -132,41 +132,61 @@ export const LoadingElementStyles = html`
   }
   @keyframes spinner {
     0%, 20%, 80%, 100% {
+      -webkit-transform: scale(1);
+      -ms-transform: scale(1);
       transform: scale(1);
     }
     50% {
+      -webkit-transform: scale(1.5);
+      -ms-transform: scale(1.5);
       transform: scale(1.5);
     }
   }
   @-moz-keyframes spinner {
     0%, 20%, 80%, 100% {
+      -webkit-transform: scale(1);
+      -ms-transform: scale(1);
       transform: scale(1);
     }
     50% {
+      -webkit-transform: scale(1.5);
+      -ms-transform: scale(1.5);
       transform: scale(1.5);
     }
   }
   @-webkit-keyframes spinner {
     0%, 20%, 80%, 100% {
+      -webkit-transform: scale(1);
+      -ms-transform: scale(1);
       transform: scale(1);
     }
     50% {
+      -webkit-transform: scale(1.5);
+      -ms-transform: scale(1.5);
       transform: scale(1.5);
     }
   }
   @-ms-keyframes spinner {
     0%, 20%, 80%, 100% {
+      -webkit-transform: scale(1);
+      -ms-transform: scale(1);
       transform: scale(1);
     }
     50% {
+      -webkit-transform: scale(1.5);
+      -ms-transform: scale(1.5);
       transform: scale(1.5);
     }
   }
   @-o-keyframes spinner {
     0%, 20%, 80%, 100% {
+      -webkit-transform: scale(1);
+      -ms-transform: scale(1);
       transform: scale(1);
     }
     50% {
+      -webkit-transform: scale(1.5);
+      -ms-transform: scale(1.5);
       transform: scale(1.5);
     }
   }

@@ -8,7 +8,7 @@ Code distributed by Google as part of the polymer project is also
 subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
 */
 
-import { LitElement, html } from '@polymer/lit-element';
+import { LitElement, html } from '@polymer/lit-element'
 
 class SnackBar extends LitElement {
   render() {
@@ -26,6 +26,8 @@ class SnackBar extends LitElement {
         box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
         text-align: center;
         will-change: transform;
+        -webkit-transform: translate3d(0, 100%, 0);
+        -ms-transform: translate3d(0, 100%, 0);
         transform: translate3d(0, 100%, 0);
         transition-property: visibility, transform;
         transition-duration: 0.2s;
@@ -33,6 +35,8 @@ class SnackBar extends LitElement {
       }
       :host([active]) {
         visibility: visible;
+        -webkit-transform: translate3d(0, 0, 0);
+        -ms-transform: translate3d(0, 0, 0);
         transform: translate3d(0, 0, 0);
       }
       @media (min-width: 460px) {
@@ -43,12 +47,14 @@ class SnackBar extends LitElement {
       }
     </style>
     <slot></slot>
-    `;
+    `
   }
 
-  static get properties() { return {
-    active: { type: Boolean },
-  }}
+  static get properties() {
+    return {
+      active: { type: Boolean }
+    }
+  }
 }
 
-window.customElements.define('snack-bar', SnackBar);
+window.customElements.define('snack-bar', SnackBar)

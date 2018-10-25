@@ -53,14 +53,20 @@ export const LoginViewStyles = html`
       margin-top: 30px;
     }
     input:focus ~ label {
+      -webkit-transform: translate(0, -30px);
+      -ms-transform: translate(0, -30px);
       transform: translate(0, -30px);
     }
     .hasText {
+      -webkit-transform: translate(0, -30px);
+      -ms-transform: translate(0, -30px);
       transform: translate(0, -30px);
     }
     input:valid ~ label {
       font-style: italic;
       text-transform: uppercase;
+      -webkit-transform: translate(-40px, -30px) scale(0.6);
+      -ms-transform: translate(-40px, -30px) scale(0.6);
       transform: translate(-40px, -30px) scale(0.6);
     }
     label {
