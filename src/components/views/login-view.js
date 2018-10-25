@@ -76,6 +76,7 @@ class LoginView extends connect(store)(PageViewElement) {
                   }">Login</button>
                 </form>
               </iron-form>
+              <p class="forgot">Forgot your password? <a href="/reset">Reset here</a></p>
             `
             : this._isLoggedIn()
         }

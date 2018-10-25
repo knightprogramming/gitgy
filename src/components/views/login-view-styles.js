@@ -72,5 +72,12 @@ export const LoginViewStyles = html`
       pointer-events: none;
       width: 100%;
     }
+    .forgot {
+      color: rgb(41, 50, 55, 0.5);
+      font-size: 10px;
+    }
+    .forgot a {
+      color: rgba(233, 30, 99, 0.5);
+    }
   </style>
 `
