@@ -12,7 +12,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
 import { html } from '@polymer/lit-element'
 
-export const ButtonSharedStyles = html`
+export const LoadingElementStyles = html`
 <style>
   /* Absolute Center Spinner */
   :host {

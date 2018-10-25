@@ -72,20 +72,5 @@ export const LoginViewStyles = html`
       pointer-events: none;
       width: 100%;
     }
-    button {
-      background-color: white;
-      border: 1px solid #E91E63;
-      border-radius: 60px;
-      color: #E91E63;
-      display: block;
-      line-height: 0;
-      margin: 35px auto 0;
-      padding: 20px 15px;
-    }
-    button:hover {
-      background-color: #E91E63;
-      color: white;
-      cursor: pointer;
-    }
   </style>
 `

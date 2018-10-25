@@ -11,7 +11,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 import { LitElement, html } from '@polymer/lit-element'
 
 // These are the shared styles needed by this element.
-import { ButtonSharedStyles } from './loading-element-styles'
+import { LoadingElementStyles } from './loading-element-styles'
 
 class LoadingElement extends LitElement {
   render() {

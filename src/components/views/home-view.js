@@ -10,19 +10,41 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
 import { html } from '@polymer/lit-element'
 import { PageViewElement } from './page-view-element.js'
+import { connect } from 'pwa-helpers/connect-mixin'
+
+// This element is connected to the Redux store.
+import { store } from '../../store'
+
+// These are the actions needed by this element.
+import { navigate } from '../../actions/app'
 
 // These are the shared styles needed by this element.
 import { SharedStyles } from '../shared-styles.js'
+import { ButtonSharedStyles } from '../button-shared-styles'
 
-class HomeView extends PageViewElement {
+class HomeView extends connect(store)(PageViewElement) {
   render() {
     return html`
       ${SharedStyles}
+      ${ButtonSharedStyles}
+      <style>
+        p {
+          text-align: center;
+        }
+      </style>
       <section>
         <h2>GITGY</h2>
         <p>Get your scare on...boo!</p>
+        <div>
+          <button class="btn" @click="${this._goToLogin}">Login</button>
+        </div>
       </section>
     `
+  }
+
+  _goToLogin() {
+    window.history.pushState({}, '', '/login')
+    store.dispatch(navigate('/login'))
   }
 }
 

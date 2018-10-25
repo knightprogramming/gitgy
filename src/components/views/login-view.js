@@ -21,6 +21,7 @@ import { navigate } from '../../actions/app'
 
 // These are the shared styles needed by this element.
 import { SharedStyles } from '../shared-styles.js'
+import { ButtonSharedStyles } from '../button-shared-styles'
 import { LoginViewStyles } from './login-view-styles'
 
 // These are the elements needed by this element.
@@ -33,6 +34,7 @@ class LoginView extends connect(store)(PageViewElement) {
   render() {
     return html`
       ${SharedStyles}
+      ${ButtonSharedStyles}
       ${LoginViewStyles}
       <section>
         ${this._loading ? html`<loading-element></loading-element>` : ''}
