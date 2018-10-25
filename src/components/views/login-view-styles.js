@@ -84,10 +84,11 @@ export const LoginViewStyles = html`
     label {
       box-sizing: border-box;
       color: #e91e63;
+      left: 0;
       position: absolute;
       padding: 10px 15px;
-      margin-top: -40px;
       pointer-events: none;
+      top: 28px;
       width: 100%;
     }
     .forgot {
