@@ -35,16 +35,36 @@ class HomeView extends connect(store)(PageViewElement) {
       <section>
         <h2>GITGY</h2>
         <p>Get your scare on...boo!</p>
-        <div>
-          <button class="btn" @click="${this._goToLogin}">Login</button>
-        </div>
+        ${
+          !this._user
+            ? html`
+              <div>
+                <button class="btn" @click="${this._goToLogin}">Login</button>
+              </div>`
+            : ''
+        }
       </section>
     `
+  }
+
+  static get properties() {
+    return {
+      _user: {
+        type: String,
+        statePath({ auth }) {
+          return auth.uid
+        }
+      }
+    }
   }
 
   _goToLogin() {
     window.history.pushState({}, '', '/login')
     store.dispatch(navigate('/login'))
+  }
+
+  stateChanged({ auth }) {
+    this._user = auth.uid
   }
 }
 

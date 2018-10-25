@@ -16,7 +16,7 @@ import { LoadingElementStyles } from './loading-element-styles'
 class LoadingElement extends LitElement {
   render() {
     return html`
-    ${ButtonSharedStyles}
+    ${LoadingElementStyles}
       <div class="spinner">
       <div></div>
       <div></div>
