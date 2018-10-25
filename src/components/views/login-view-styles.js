@@ -21,7 +21,13 @@ export const LoginViewStyles = html`
       margin-bottom: 0;
       text-align: center;
     }
-    input, label, button {
+    input,
+    label,
+    button {
+      -webkit-transition: all 0.25s cubic-bezier(0.53, 0.01, 0.35, 1.5);
+      -moz-transition: all 0.25s cubic-bezier(0.53, 0.01, 0.35, 1.5);
+      -ms-transition: all 0.25s cubic-bezier(0.53, 0.01, 0.35, 1.5);
+      -o-transition: all 0.25s cubic-bezier(0.53, 0.01, 0.35, 1.5);
       transition: all 0.25s cubic-bezier(0.53, 0.01, 0.35, 1.5);
     }
     form {
@@ -36,16 +42,16 @@ export const LoginViewStyles = html`
       width: 100%;
     }
     input {
-      border: 1px solid #E91E63;
+      border: 1px solid #e91e63;
       border-radius: 60px;
       box-sizing: border-box;
-      color: #E91E63;
+      color: #e91e63;
       margin-top: 30px;
       padding: 10px 15px;
       width: 100%;
     }
     input:focus {
-      background: #E91E63;
+      background: #e91e63;
       color: white;
       outline: none;
     }
@@ -54,24 +60,30 @@ export const LoginViewStyles = html`
     }
     input:focus ~ label {
       -webkit-transform: translate(0, -30px);
+      -moz-transform: translate(0, -30px);
       -ms-transform: translate(0, -30px);
+      -o-transform: translate(0, -30px);
       transform: translate(0, -30px);
     }
     .hasText {
       -webkit-transform: translate(0, -30px);
+      -moz-transform: translate(0, -30px);
       -ms-transform: translate(0, -30px);
+      -o-transform: translate(0, -30px);
       transform: translate(0, -30px);
     }
     input:valid ~ label {
       font-style: italic;
       text-transform: uppercase;
       -webkit-transform: translate(-40px, -30px) scale(0.6);
+      -moz-transform: translate(-40px, -30px) scale(0.6);
       -ms-transform: translate(-40px, -30px) scale(0.6);
+      -o-transform: translate(-40px, -30px) scale(0.6);
       transform: translate(-40px, -30px) scale(0.6);
     }
     label {
       box-sizing: border-box;
-      color: #E91E63;
+      color: #e91e63;
       position: absolute;
       padding: 10px 15px;
       margin-top: -40px;
