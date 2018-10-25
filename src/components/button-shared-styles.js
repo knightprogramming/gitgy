@@ -32,10 +32,19 @@ export const ButtonSharedStyles = html`
     margin: 35px auto 0;
     padding: 20px 15px;
   }
-  button:hover {
+  .btn:hover {
     background-color: #E91E63;
     color: white;
     cursor: pointer;
+  }
+  .btn:disabled {
+    color: rgba(233, 30, 99, 0.5);
+    border-color: rgba(233, 30, 99, 0.5);
+  }
+  .btn:disabled:hover {
+    background-color: white;
+    color: rgba(233, 30, 99, 0.5);
+    cursor: default;
   }
 </style>
 `

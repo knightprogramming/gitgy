@@ -46,6 +46,7 @@ export const LoginViewStyles = html`
       border-radius: 60px;
       box-sizing: border-box;
       color: #e91e63;
+      font-size: 16px;
       margin-top: 30px;
       padding: 10px 15px;
       width: 100%;
@@ -93,7 +94,7 @@ export const LoginViewStyles = html`
     }
     .forgot {
       color: rgb(41, 50, 55, 0.5);
-      font-size: 10px;
+      font-size: 12px;
     }
     .forgot a {
       color: rgba(233, 30, 99, 0.5);

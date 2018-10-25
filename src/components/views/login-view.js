@@ -47,7 +47,7 @@ class LoginView extends connect(store)(PageViewElement) {
                 <form>
                   <div>
                     <input id="email" name="email" type="email" required @input=${e =>
-                      (this._email = e.target.value)}>
+                      (this._email = e.target.value) && this._isValid(e)}>
                     <label for="email" class="${
                       !this._email
                         ? ''
@@ -60,7 +60,7 @@ class LoginView extends connect(store)(PageViewElement) {
                   </div>
                   <div>
                     <input id="password" name="email" type="password" minlength="8" required @input=${e =>
-                      (this._password = e.target.value)}>
+                      (this._password = e.target.value) && this._isValid(e)}>
                     <label for ="email" class="${
                       !this._password
                         ? ''
@@ -73,7 +73,7 @@ class LoginView extends connect(store)(PageViewElement) {
                   </div>
                   <button class="btn" type="button" @click="${
                     this._login
-                  }">Login</button>
+                  }" disabled>Login</button>
                 </form>
               </iron-form>
               <p class="forgot">Forgot your password? <a href="/reset">Reset here</a></p>
@@ -122,6 +122,16 @@ class LoginView extends connect(store)(PageViewElement) {
   _isLoggedIn() {
     window.history.pushState({}, '', '/')
     store.dispatch(navigate('/'))
+  }
+
+  _isValid(e) {
+    const isValid =
+      this.shadowRoot.querySelector('#email').validity.valid &&
+      this.shadowRoot.querySelector('#password').validity.valid
+
+    if (isValid) {
+      this.shadowRoot.querySelector('.btn').disabled = false
+    }
   }
 
   stateChanged({ auth }) {
