@@ -198,7 +198,11 @@ class MyApp extends connect(store)(LitElement) {
       <!-- This gets hidden on a small screen-->
       <nav class="toolbar-list">
         <a ?selected="${this._page === 'home'}" href="/home">Home</a>
-        <a ?selected="${this._page === 'map'}" href="/map">Map</a>
+        ${
+          this._user
+            ? html`<a ?selected="${this._page === 'map'}" href="/map">Map</a>`
+            : ''
+        }
         ${
           this._user
             ? html`<a href="#" @click="${this._logout}">Logout</a>`
@@ -213,7 +217,11 @@ class MyApp extends connect(store)(LitElement) {
         @opened-changed="${this._drawerOpenedChanged}">
       <nav class="drawer-list">
         <a ?selected="${this._page === 'home'}" href="/home">Home</a>
-        <a ?selected="${this._page === 'map'}" href="/map">Map</a>
+        ${
+          this._user
+            ? html`<a ?selected="${this._page === 'map'}" href="/map">Map</a>`
+            : ''
+        }
         ${
           this._user
             ? html`<a href="#" @click="${this._logout}">Logout</a>`
