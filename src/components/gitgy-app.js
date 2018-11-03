@@ -200,6 +200,12 @@ class MyApp extends connect(store)(LitElement) {
         <a ?selected="${this._page === 'home'}" href="/home">Home</a>
         ${
           this._user
+            ? html`<a ?selected="${this._page ===
+                'dashboard'}" href="/dashboard">Dashboard</a>`
+            : ''
+        }
+        ${
+          this._user
             ? html`<a ?selected="${this._page === 'map'}" href="/map">Map</a>`
             : ''
         }
@@ -219,6 +225,12 @@ class MyApp extends connect(store)(LitElement) {
         <a ?selected="${this._page === 'home'}" href="/home">Home</a>
         ${
           this._user
+            ? html`<a ?selected="${this._page ===
+                'dashboard'}" href="/dashboard">Dashboard</a>`
+            : ''
+        }
+        ${
+          this._user
             ? html`<a ?selected="${this._page === 'map'}" href="/map">Map</a>`
             : ''
         }
@@ -236,6 +248,8 @@ class MyApp extends connect(store)(LitElement) {
       <home-view class="page" ?active="${this._page === 'home'}"></home-view>
       <not-found-view class="page" ?active="${this._page ===
         'not-found'}"></not-found-view>
+      <dashboard-view class="page" ?active="${this._page ===
+        'dashboard'}"></dashboard-view>
       <map-view class="page" ?active="${this._page === 'map'}"></map-view>
       <login-view class="page" ?active="${this._page === 'login'}"></login-view>
     </main>

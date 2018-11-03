@@ -34,6 +34,9 @@ const loadPage = page => dispatch => {
         // navigating to home after home-view.js is loaded.
       })
       break
+    case 'dashboard':
+      import('../components/views/dashboard-view.js')
+      break
     case 'map':
       import('../components/views/map-view.js')
       break

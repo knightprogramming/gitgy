@@ -129,9 +129,9 @@ class LoginView extends connect(store)(PageViewElement) {
       this.shadowRoot.querySelector('#email').validity.valid &&
       this.shadowRoot.querySelector('#password').validity.valid
 
-    if (isValid) {
-      this.shadowRoot.querySelector('.btn').disabled = false
-    }
+    isValid
+      ? (this.shadowRoot.querySelector('.btn').disabled = false)
+      : (this.shadowRoot.querySelector('.btn').disabled = true)
   }
 
   stateChanged({ auth }) {
