@@ -210,6 +210,12 @@ class MyApp extends connect(store)(LitElement) {
             : ''
         }
         ${
+          !this._user
+            ? html`<a ?selected="${this._page ===
+                'signup'}" href="/signup">Sign Up</a>`
+            : ''
+        }
+        ${
           this._user
             ? html`<a href="#" @click="${this._logout}">Logout</a>`
             : html`<a ?selected="${this._page ===
@@ -235,6 +241,12 @@ class MyApp extends connect(store)(LitElement) {
             : ''
         }
         ${
+          !this._user
+            ? html`<a ?selected="${this._page ===
+                'signup'}" href="/signup">Sign Up</a>`
+            : ''
+        }
+        ${
           this._user
             ? html`<a href="#" @click="${this._logout}">Logout</a>`
             : html`</button><a ?selected="${this._page ===
@@ -251,6 +263,8 @@ class MyApp extends connect(store)(LitElement) {
       <dashboard-view class="page" ?active="${this._page ===
         'dashboard'}"></dashboard-view>
       <map-view class="page" ?active="${this._page === 'map'}"></map-view>
+      <signup-view class="page" ?active="${this._page ===
+        'signup'}"></signup-view>
       <login-view class="page" ?active="${this._page === 'login'}"></login-view>
     </main>
 

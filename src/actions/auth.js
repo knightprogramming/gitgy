@@ -8,10 +8,28 @@ Code distributed by Google as part of the polymer project is also
 subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
 */
 
+export const START_SIGNUP = 'START_SIGNUP'
+export const SIGNUP_SUCCESS = 'SIGNUP_SUCCESS'
+export const SIGNUP_FAILURE = 'SIGNUP_FAILURE'
+
 export const START_LOGIN = 'START_LOGIN'
 export const LOGIN_SUCCESS = 'LOGIN_SUCCESS'
 export const LOGIN_FAILURE = 'LOGIN_FAILURE'
+
 export const LOGOUT = 'LOGOUT'
+
+export const startSignup = (email, password) => (dispatch, getState) => {
+  dispatch({ type: START_SIGNUP })
+
+  setTimeout(() => {
+    if (email && password) {
+      const uid = 'abc123'
+      dispatch(signUpSuccess(uid))
+    } else {
+      dispatch(signUpFailure())
+    }
+  }, 3000)
+}
 
 export const startLogin = (email, password) => (dispatch, getState) => {
   dispatch({ type: START_LOGIN })
@@ -29,7 +47,11 @@ export const startLogin = (email, password) => (dispatch, getState) => {
   }, 3000)
 }
 
+export const signUpSuccess = uid => ({ type: SIGNUP_SUCCESS, uid })
+
 export const loginSuccess = uid => ({ type: LOGIN_SUCCESS, uid })
+
+export const signUpFailure = () => ({ type: SIGNUP_FAILURE })
 
 export const loginFailure = () => ({ type: LOGIN_FAILURE })
 

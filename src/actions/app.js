@@ -40,6 +40,9 @@ const loadPage = page => dispatch => {
     case 'map':
       import('../components/views/map-view.js')
       break
+    case 'signup':
+      import('../components/views/signup-view.js')
+      break
     case 'login':
       import('../components/views/login-view.js')
       break

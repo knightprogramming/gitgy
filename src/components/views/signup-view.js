@@ -16,7 +16,7 @@ import { connect } from 'pwa-helpers/connect-mixin'
 import { store } from '../../store'
 
 // These are the actions needed by this element.
-import { startLogin } from '../../actions/auth'
+import { startSignup } from '../../actions/auth'
 import { navigate } from '../../actions/app'
 
 // These are the shared styles needed by this element.
@@ -30,7 +30,7 @@ import '../base/loading-element'
 
 // style inspiration: https://dribbble.com/shots/5198105 & https://codepen.io/abergin/pen/jIplf/?editors=1100
 
-class LoginView extends connect(store)(PageViewElement) {
+class SignUpView extends connect(store)(PageViewElement) {
   render() {
     return html`
       ${SharedStyles}
@@ -42,9 +42,9 @@ class LoginView extends connect(store)(PageViewElement) {
           !this._user
             ? html`
               <h2>Hey there!</h2>
-              <p>Please enter your credentials</p>
+              <p>Enter an email and password to signup</p>
               ${
-                this._loginFailure
+                this._signUpFailure
                   ? html`<p class="login-error">Invalid email or password</p>`
                   : ''
               }
@@ -77,8 +77,8 @@ class LoginView extends connect(store)(PageViewElement) {
                     </label>
                   </div>
                   <button class="btn" type="button" @click="${
-                    this._login
-                  }" disabled>Login</button>
+                    this._signUp
+                  }" disabled>Sign Up</button>
                 </form>
               </iron-form>
               <p class="forgot">Forgot your password? <a href="/reset">Reset here</a></p>
@@ -103,10 +103,10 @@ class LoginView extends connect(store)(PageViewElement) {
           return auth.uid
         }
       },
-      _loginFailure: {
+      _signUpFailure: {
         type: Boolean,
         statePath({ auth }) {
-          return auth.loginFailure
+          return auth.signUpFailure
         }
       },
       _email: String,
@@ -114,11 +114,12 @@ class LoginView extends connect(store)(PageViewElement) {
     }
   }
 
-  _login() {
+  _signUp() {
+    console.log('yup')
     const email = this.shadowRoot.querySelector('#email')
     const password = this.shadowRoot.querySelector('#password')
     if (email.validity.valid && password.validity.valid) {
-      store.dispatch(startLogin(email.value, password.value))
+      store.dispatch(startSignup(email.value, password.value))
       this._email = ''
       this._password = ''
     }
@@ -142,8 +143,8 @@ class LoginView extends connect(store)(PageViewElement) {
   stateChanged({ auth }) {
     this._loading = auth.loading
     this._user = auth.uid
-    this._loginFailure = auth.loginFailure
+    this._signUpFailure = auth.signUpFailure
   }
 }
 
-window.customElements.define('login-view', LoginView)
+window.customElements.define('signup-view', SignUpView)

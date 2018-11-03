@@ -32,6 +32,9 @@ export const ButtonSharedStyles = html`
     margin: 35px auto 0;
     padding: 20px 15px;
   }
+  .btn--sibling {
+    margin-top: 15px;
+  }
   .btn:hover {
     background-color: #E91E63;
     color: white;

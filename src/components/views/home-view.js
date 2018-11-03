@@ -40,6 +40,9 @@ class HomeView extends connect(store)(PageViewElement) {
             ? html`
               <div>
                 <button class="btn" @click="${this._goToLogin}">Login</button>
+                <button class="btn btn--sibling" @click="${
+                  this._goToSignUp
+                }">Sign Up</button>
               </div>`
             : ''
         }
@@ -61,6 +64,11 @@ class HomeView extends connect(store)(PageViewElement) {
   _goToLogin() {
     window.history.pushState({}, '', '/login')
     store.dispatch(navigate('/login'))
+  }
+
+  _goToSignUp() {
+    window.history.pushState({}, '', '/signup')
+    store.dispatch(navigate('/signup'))
   }
 
   stateChanged({ auth }) {

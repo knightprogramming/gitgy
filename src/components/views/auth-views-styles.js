@@ -12,7 +12,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
 import { html } from '@polymer/lit-element'
 
-export const LoginViewStyles = html`
+export const AuthViewsStyles = html`
   <style>
     h2 {
       margin-bottom: 0;
@@ -98,6 +98,25 @@ export const LoginViewStyles = html`
     }
     .forgot a {
       color: rgba(233, 30, 99, 0.5);
+    }
+    @keyframes grow-up {
+      from {
+        opacity: 0;
+        transform: scaleY(0);
+      }
+      to {
+        opacity: 1;
+        transform: scaleY(1);
+      }
+    }
+    .login-error {
+      animation: grow-up ease 0.4s forwards;
+      border-left: 6px solid #E91E63;
+      color: #E91E63;
+      font-weight: bold;
+      max-width: 200px;
+      opacity: 0;
+      padding: 10px 5px;
     }
   </style>
 `

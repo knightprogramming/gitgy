@@ -9,6 +9,9 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 */
 
 import {
+  START_SIGNUP,
+  SIGNUP_SUCCESS,
+  SIGNUP_FAILURE,
   START_LOGIN,
   LOGIN_SUCCESS,
   LOGIN_FAILURE,
@@ -17,23 +20,42 @@ import {
 
 const initialState = {
   loading: false,
+  signUpFailure: false,
   loginFailure: false,
   uid: null
 }
 
 export default function authReducer(state = initialState, action) {
   switch (action.type) {
+    case START_SIGNUP:
+      return {
+        ...state,
+        loading: true,
+        signUpFailure: false
+      }
     case START_LOGIN:
       return {
         ...state,
         loading: true,
         loginFailure: false
       }
+    case SIGNUP_SUCCESS:
+      return {
+        ...state,
+        loading: false,
+        uid: action.uid
+      }
     case LOGIN_SUCCESS:
       return {
         ...state,
         loading: false,
         uid: action.uid
+      }
+    case SIGNUP_FAILURE:
+      return {
+        ...state,
+        loading: false,
+        signUpFailure: true
       }
     case LOGIN_FAILURE:
       return {
