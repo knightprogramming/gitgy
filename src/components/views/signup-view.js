@@ -45,11 +45,20 @@ class SignUpView extends connect(store)(PageViewElement) {
               <p>Enter an email and password to signup</p>
               ${
                 this._signUpFailure
-                  ? html`<p class="login-error">Invalid email or password</p>`
+                  ? html`<p class="login-error">Unable to create account. Please try again later.</p>`
                   : ''
               }
               <iron-form>
                 <form>
+                  <div>
+                    <input id="name" name="name" type="text" required @input=${e =>
+                      (this._name = e.target.value) && this._isValid(e)}>
+                    <label for="name" class="${
+                      !this._name ? '' : this._name.length > 0 ? 'hasText' : ''
+                    }">
+                      Name
+                    </label>
+                  </div>
                   <div>
                     <input id="email" name="email" type="email" required @input=${e =>
                       (this._email = e.target.value) && this._isValid(e)}>
@@ -109,17 +118,19 @@ class SignUpView extends connect(store)(PageViewElement) {
           return auth.signUpFailure
         }
       },
+      _name: String,
       _email: String,
       _password: String
     }
   }
 
   _signUp() {
-    console.log('yup')
+    const name = this.shadowRoot.querySelector('#name').value
     const email = this.shadowRoot.querySelector('#email')
     const password = this.shadowRoot.querySelector('#password')
-    if (email.validity.valid && password.validity.valid) {
-      store.dispatch(startSignup(email.value, password.value))
+    if (name.length > 0 && email.validity.valid && password.validity.valid) {
+      store.dispatch(startSignup(name, email.value, password.value))
+      this._name = ''
       this._email = ''
       this._password = ''
     }
@@ -131,7 +142,9 @@ class SignUpView extends connect(store)(PageViewElement) {
   }
 
   _isValid(e) {
+    const name = this.shadowRoot.querySelector('#name').value
     const isValid =
+      name.length > 0 &&
       this.shadowRoot.querySelector('#email').validity.valid &&
       this.shadowRoot.querySelector('#password').validity.valid
 

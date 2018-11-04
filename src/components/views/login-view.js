@@ -64,9 +64,9 @@ class LoginView extends connect(store)(PageViewElement) {
                     </label>
                   </div>
                   <div>
-                    <input id="password" name="email" type="password" minlength="8" required @input=${e =>
+                    <input id="password" name="password" type="password" minlength="8" required @input=${e =>
                       (this._password = e.target.value) && this._isValid(e)}>
-                    <label for ="email" class="${
+                    <label for ="password" class="${
                       !this._password
                         ? ''
                         : this._password.length > 0
